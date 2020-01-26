@@ -33,6 +33,19 @@ public class UpdateStudentDemo {
             session.getTransaction().commit();
             System.out.println("Done!");
 
+            //new session
+            session = factory.getCurrentSession();
+            session.beginTransaction();
+
+            //udate email for all users
+            System.out.println("Update email for all students");
+
+            session.createQuery("update Student set email='updatemail@gmail.com'").executeUpdate();
+
+            session.getTransaction().commit();
+
+            System.out.println("Done!");
+
         } finally {
             factory.close();
         }
