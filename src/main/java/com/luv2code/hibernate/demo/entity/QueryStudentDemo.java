@@ -42,6 +42,13 @@ public class QueryStudentDemo {
             System.out.println("\n\nStudent who last name of Dow or first name of John.");
             displayTheStudents(theStudents);
 
+            //query students where email LIKE '%like2code.com'
+            theStudents = session.createQuery("from Student s where"
+                    + " s.email LIKE '%luv2code.come'").getResultList();
+
+            System.out.println("\n\nStudent who email ends with like2code.com");
+            displayTheStudents(theStudents);
+
             // commit transaction
             session.getTransaction().commit();
 
